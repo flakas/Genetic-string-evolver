@@ -7,6 +7,7 @@ class Simulator:
     mutation_rate = 0.05
     copy_limit = 100
     target = ''
+    suppressOutput = False
 
     def __init__(self, characters, mutation_rate, copy_limit):
         self.characters = characters
@@ -40,6 +41,12 @@ class Simulator:
 
             current = max(copies, key=lambda x: self.scoreIteration(x))    
             self.printStep(iterations, current)
+        return iterations
+
+    def setOutput(self, output=True):
+        self.suppressOutput = not(output)
+        return self.suppressOutput
 
     def printStep(self, iteration, current):
-        print '%d: Target "%s", current "%s" (%d of %d)' % (iteration, self.target, current, self.scoreIteration(current), len(self.target))
+        if not self.suppressOutput:
+            print '%d: Target "%s", current "%s" (%d of %d)' % (iteration, self.target, current, self.scoreIteration(current), len(self.target))

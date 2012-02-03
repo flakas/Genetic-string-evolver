@@ -1,5 +1,6 @@
 #Dawkins Weasel program simulation
 import sys
+import cProfile
 import timeit
 import simulator
 
@@ -13,5 +14,12 @@ if len(target) < 1:
     sys.exit()
 
 s = simulator.Simulator(characters, MUTATION_RATE, COPY_LIMIT)
-s.run(target)
+s.setOutput(False)
+#s.run(target)
+#cProfile.run('s.run(target)')
+def runtimer():
+    s.run(target)
+    return
 
+number = 20
+print timeit.Timer(runtimer).timeit(number=number) / number
