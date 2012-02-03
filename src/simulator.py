@@ -38,8 +38,7 @@ class Simulator:
             for i in range(self.copy_limit):
                 copies.append(self.mutate(current))
 
-            copies = sorted(copies, lambda x, y: cmp(self.scoreIteration(x), self.scoreIteration(y)), reverse=True)    
-            current = copies[0]
+            current = max(copies, key=lambda x: self.scoreIteration(x))    
             self.printStep(iterations, current)
 
     def printStep(self, iteration, current):
