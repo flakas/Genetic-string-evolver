@@ -9,8 +9,8 @@ class Simulator:
     target = ''
     suppressOutput = False
 
-    def __init__(self, characters = '', mutation_rate = -1, copy_limit = -1):
-        """Set custom settings on construct if you need"""
+    def __init__(self, characters='', mutation_rate=-1, copy_limit=-1):
+        """Set custom settings on construct if you need.  """
         if len(characters) > 1:
             self.characters = characters
         if mutation_rate >= 0:
@@ -20,7 +20,7 @@ class Simulator:
 
     def scoreIteration(self, str):
         """Compare string supplied and target and compute string score based
-        on how many characters in same position match."""
+        on how many characters in same position match.  """
         score = 0
         for key in range(len(self.target)):
             if self.target[key] == str[key]:
@@ -29,7 +29,7 @@ class Simulator:
 
     def mutate(self, str):
         """Mutate supplied string. Each character of the string has a 
-        self.mutation_rate chance of mutating"""
+        self.mutation_rate chance of mutating.  """
         str = list(str)
         for key in range(len(str)):
             if self.mutation_rate >= random.random():
@@ -38,7 +38,7 @@ class Simulator:
         return ''.join(str)
 
     def run(self, target):
-        """Run a simulation with the supplied string"""
+        """Run a simulation with the supplied string.  """
         self.target = target
         #Generate a random string with the same length as target string
         current = ''.join([self.characters[random.randint(0, 
@@ -55,12 +55,12 @@ class Simulator:
         return iterations
 
     def setOutput(self, output=True):
-        """Enable or disable output"""
+        """Enable or disable output.  """
         self.suppressOutput = not(output)
         return self.suppressOutput
 
     def __printStep(self, iteration, current):
-        """Print current iteration stats"""
+        """Print current iteration stats.  """
         if not self.suppressOutput:
             print '%d: Target "%s", current "%s" (%d of %d)' % (
                     iteration, self.target, current, 
