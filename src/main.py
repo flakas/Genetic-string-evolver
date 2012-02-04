@@ -16,6 +16,5 @@ if len(target) < 1:
     sys.exit()
 
 s = simulator.Simulator(characters, MUTATION_RATE, COPY_LIMIT)
-s.setOutput(False)
-s.run(target)
+print 'Numder of iterations: %d' % s.run(target)
 
