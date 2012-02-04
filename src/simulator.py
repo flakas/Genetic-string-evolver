@@ -5,7 +5,7 @@ import random
 class Simulator:
     characters = ''
     mutation_rate = 0.05
-    copy_limit = 100
+    copy_limit = 1000
     target = ''
     suppressOutput = False
 
@@ -25,12 +25,14 @@ class Simulator:
         str = list(str)
         for key in range(len(str)):
             if self.mutation_rate >= random.random():
-                str[key] = self.characters[random.randint(0, len(self.characters) - 1)]
+                str[key] = self.characters[random.randint(0, 
+                   len(self.characters) - 1)]
         return ''.join(str)
 
     def run(self, target):
         self.target = target
-        current = ''.join([self.characters[random.randint(0, len(self.characters) - 1)] for i in range(len(target))]) 
+        current = ''.join([self.characters[random.randint(0, 
+            len(self.characters) - 1)] for i in range(len(target))]) 
         iterations = 0
         self.printStep(iterations, current)
         while current != target:
@@ -38,7 +40,6 @@ class Simulator:
             copies = []
             for i in range(self.copy_limit):
                 copies.append(self.mutate(current))
-
             current = max(copies, key=lambda x: self.scoreIteration(x))    
             self.printStep(iterations, current)
         return iterations
@@ -49,4 +50,6 @@ class Simulator:
 
     def printStep(self, iteration, current):
         if not self.suppressOutput:
-            print '%d: Target "%s", current "%s" (%d of %d)' % (iteration, self.target, current, self.scoreIteration(current), len(self.target))
+            print '%d: Target "%s", current "%s" (%d of %d)' % (
+                    iteration, self.target, current, 
+                    self.scoreIteration(current), len(self.target))

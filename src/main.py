@@ -1,7 +1,9 @@
-#Dawkins Weasel program simulation
+#Dawkins Weasel program simulation. Simulates evolution of random strings
+#to user supplied strings
 import sys
 import cProfile
 import timeit
+
 import simulator
 
 characters = 'QWERTYUIOPASDFGHJKLZXCVBNM '
@@ -15,11 +17,5 @@ if len(target) < 1:
 
 s = simulator.Simulator(characters, MUTATION_RATE, COPY_LIMIT)
 s.setOutput(False)
-#s.run(target)
-#cProfile.run('s.run(target)')
-def runtimer():
-    s.run(target)
-    return
+s.run(target)
 
-number = 20
-print timeit.Timer(runtimer).timeit(number=number) / number
