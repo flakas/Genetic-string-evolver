@@ -1,3 +1,4 @@
+#/usr/bin/python2.7
 # Dawkins Weasel program simulation. Simulates evolution of random strings
 # to user supplied strings
 import sys

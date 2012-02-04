@@ -1,3 +1,4 @@
+#/usr/bin/python2.7
 # Simulator for Dawkins Weasel program
 
 import random
