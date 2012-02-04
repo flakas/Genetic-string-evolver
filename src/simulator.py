@@ -3,7 +3,7 @@
 import random
 
 class Simulator:
-    characters = ''
+    characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM '
     mutation_rate = 0.05
     copy_limit = 1000
     target = ''
