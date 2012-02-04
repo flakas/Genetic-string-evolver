@@ -9,10 +9,14 @@ class Simulator:
     target = ''
     suppressOutput = False
 
-    def __init__(self, characters, mutation_rate, copy_limit):
-        self.characters = characters
-        self.mutation_rate = mutation_rate
-        self.copy_limit = copy_limit
+    def __init__(self, characters='', mutation_rate=-1, copy_limit=-1):
+        """Set custom settings on construct if you need"""
+        if len(characters) > 1:
+            self.characters = characters
+        if mutation_rate >= 0:
+            self.mutation_rate = mutation_rate
+        if copy_limit >= 0:
+            self.copy_limit = copy_limit
 
     def scoreIteration(self, str):
         score = 0
