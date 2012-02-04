@@ -12,7 +12,7 @@ class Simulator:
 
     def __init__(self, characters='', mutation_rate=-1, copy_limit=-1):
         """Set custom settings on construct if you need.  """
-        if len(characters) > 1:
+        if characters:
             self._characters = characters
         if mutation_rate >= 0:
             self._mutation_rate = mutation_rate
