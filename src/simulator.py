@@ -4,6 +4,9 @@
 import random
 
 class Simulator:
+    """Dawkins Weasel program that simulates random string evolution into 
+    a user generated string.  
+    """
     _characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM '
     _mutation_rate = 0.05
     _copy_limit = 1000
