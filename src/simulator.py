@@ -1,11 +1,11 @@
 #/usr/bin/python2.7
-# Simulator for Dawkins Weasel program
+# Genetic string evolver based on Dawkins Weasel program
 
 import random
 
 class Simulator:
-    """Dawkins Weasel program that simulates random string evolution into 
-    a user generated string.  
+    """Genetic string evolver based on Dawkins Weasel program.
+    Simulates random string evolution into a user generated string.  
     """
     _characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM '
     _mutation_rate = 0.05
